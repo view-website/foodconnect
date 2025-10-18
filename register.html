@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>FoodConnect • Register</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">FoodConnect</div>
+      <div class="nav">
+        <a class="btn ghost" href="about.html">About</a>
+        <a class="btn primary" href="login.html">Login</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2 style="margin-top:0">Create your account</h2>
+        <div class="grid grid-2">
+          <div>
+            <label>Register as</label>
+            <select id="role" class="input">
+              <option value="donor">Donor</option>
+              <option value="orphanage">Orphanage</option>
+              <option value="volunteer">Volunteer</option>
+            </select>
+          </div>
+          <div>
+            <label>Name</label>
+            <input id="name" class="input" placeholder="Full name">
+          </div>
+          <div>
+            <label>Email</label>
+            <input id="email" class="input" placeholder="Email">
+          </div>
+          <div>
+            <label>Password</label>
+            <input id="password" type="password" class="input" placeholder="Create password">
+          </div>
+        </div>
+
+        <!-- 🔽 Only ONE extra field appears here depending on role -->
+        <hr class="sep">
+        <div id="dynamicFields" class="grid grid-2"></div>
+
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <button class="btn primary" id="registerBtn">Register</button>
+          <a class="btn" href="login.html">I already have an account</a>
+        </div>
+        <p id="regMsg" class="helper"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase + app scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+  <script src="utils.js"></script>
+  <script src="app.js"></script>
+  <script>setupRegister();</script>
+</body>
+
+</html>

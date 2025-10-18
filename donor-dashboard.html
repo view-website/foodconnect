@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>FoodConnect • Donor Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">FoodConnect</div>
+      <div class="nav">
+        <span class="badge" id="profileBadge">Loading...</span>
+        <button class="btn small brown" id="editProfileBtn">Edit Profile</button>
+        <button class="btn small" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <!-- Left: Post/Update offer -->
+      <section class="card">
+        <div class="row" style="justify-content:space-between">
+          <h2 style="margin:0">Donate Food</h2>
+          <span class="tag">Donor</span>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi">
+            <h3 id="statOffers">0</h3>
+            <p>Offers posted</p>
+          </div>
+          <div class="kpi">
+            <h3 id="statAccepted">0</h3>
+            <p>Accepted</p>
+          </div>
+          <div class="kpi">
+            <h3 id="statVerified">0</h3>
+            <p>Verified</p>
+          </div>
+        </div>
+
+        <hr class="sep">
+
+        <div class="grid grid-2">
+          <div><label>Donor Type</label><input id="dtype" class="input" placeholder="Restaurant, hotel…"></div>
+          <div><label>Food Description</label><input id="ddesc" class="input" placeholder="e.g., veg biryani x50"></div>
+          <div><label>Quantity</label><input id="dqty" class="input" placeholder="e.g., 50 meals"></div>
+          <div><label>Pickup Time</label><input id="dtime" type="datetime-local" class="input"></div>
+          <div><label>Location</label><input id="dloc" class="input" placeholder="Area / City"></div>
+          <div><label>Contact Email</label><input id="dcontact" class="input" placeholder="contact@email.com"></div>
+        </div>
+
+        <div style="margin-top:10px;display:flex;gap:10px">
+          <button class="btn primary" id="postOffer">Post Offer</button>
+          <span id="formMsg" class="helper"></span>
+        </div>
+
+        <p class="helper" style="margin-top:10px"><b>How it works:</b> Post an offer → Orphanages request → You accept →
+          Handover → Verified.</p>
+      </section>
+
+      <!-- Right: Orphanages needing food -->
+      <section class="card">
+        <h2>Orphanages needing food</h2>
+
+        <div class="filters">
+          <input id="flocation" class="input" placeholder="Filter by area / address (e.g., Banjarahills)">
+          <select id="ftime" class="input">
+            <option value="all">All time</option>
+            <option value="day">Last 24 hours</option>
+            <option value="week">Last week</option>
+            <option value="month">Last month</option>
+          </select>
+          <select id="fverified" class="input">
+            <option value="any">Any status</option>
+            <option value="verified">Verified only</option>
+            <option value="unverified">Unverified only</option>
+          </select>
+        </div>
+
+        <div id="list" style="margin-top:15px"></div>
+      </section>
+    </div>
+
+    <!-- Inbox section -->
+    <section class="card" style="margin-top:20px">
+      <h2>Inbox</h2>
+      <p class="helper">Requests and messages sent to you appear here.</p>
+      <div id="inboxList" style="margin-top:10px"></div>
+    </section>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Edit Profile</h2>
+      <div id="editFields"></div>
+      <div style="margin-top:15px;display:flex;gap:10px">
+        <button class="btn primary" id="saveProfileBtn">Save</button>
+        <button class="btn" id="cancelEditBtn">Cancel</button>
+      </div>
+      <p id="editMsg" class="helper" style="margin-top:10px"></p>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="firebase.js"></script>
+  <script src="utils.js"></script>
+  <script src="app.js"></script>
+  <script src="donor.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>FoodConnect • Volunteer Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">FoodConnect</div>
+      <div class="nav">
+        <span class="badge" id="profileBadge">Loading...</span>
+        <button class="btn small brown" id="editProfileBtn">Edit Profile</button>
+        <button class="btn small" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2>Orphanages you can help</h2>
+
+      <div class="filters">
+        <input id="flocation" class="input" placeholder="Filter by area / address">
+        <select id="ftime" class="input">
+          <option value="all">All time</option>
+          <option value="day">Last 24 hours</option>
+          <option value="week">Last week</option>
+          <option value="month">Last month</option>
+        </select>
+        <select id="fverified" class="input">
+          <option value="any">Any status</option>
+          <option value="verified">Verified only</option>
+          <option value="unverified">Unverified only</option>
+        </select>
+      </div>
+
+      <div id="list" style="margin-top:15px"></div>
+    </section>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Edit Profile</h2>
+      <div id="editFields"></div>
+      <div style="margin-top:15px;display:flex;gap:10px">
+        <button class="btn primary" id="saveProfileBtn">Save</button>
+        <button class="btn" id="cancelEditBtn">Cancel</button>
+      </div>
+      <p id="editMsg" class="helper" style="margin-top:10px"></p>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="firebase.js"></script>
+  <script src="utils.js"></script>
+  <script src="app.js"></script>
+  <script src="volunteer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>FoodConnect • Login</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">FoodConnect</div>
+      <div class="nav">
+        <a class="btn ghost" href="about.html">About</a>
+        <a class="btn" href="register.html">Register</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2 style="margin-top:0">Welcome back</h2>
+        <p class="helper">Sign in to access your dashboard.</p>
+
+        <div class="grid grid-2">
+          <div>
+            <label>Email</label>
+            <input id="email" class="input" placeholder="Email">
+          </div>
+          <div>
+            <label>Password</label>
+            <input id="password" type="password" class="input" placeholder="Password">
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:16px">
+          <button class="btn primary" id="loginBtn">Login</button>
+          <a class="btn" href="register.html">Create account</a>
+        </div>
+
+        <p id="loginMsg" class="helper"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase + app scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+  <script src="utils.js"></script>
+  <script src="app.js"></script>
+  <script>setupLogin();</script>
+</body>
+
+</html>
